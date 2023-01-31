@@ -1,0 +1,37 @@
+﻿@model AdminViewModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Admin</h1>
+
+<form asp-controller="Admins" asp-action="Edit" method="post">
+    <div class="row">
+        <div class="col-md-4">
+            <div asp-validation-summary="All"class="text-danger"></div>
+            <div class="mb-2">
+                <label asp-for="UserName"></label>
+                <input type="text" asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName"></span>
+            </div>
+            <div class="mb-2">
+                <label asp-for="Name"></label>
+                <input type="text" asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name"></span>
+            </div>
+            <div class="mb-2">
+                <label asp-for="Email"></label>
+                <input type="email" asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email"></span>
+            </div>
+            <div class="mb-2">
+                <label asp-for="Password"></label>
+                <input type="password" asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password"></span>
+            </div>
+            <div class="mt-2">
+                <input type="submit" class="btn btn-primary" value="Add New" />
+            </div>
+        </div>
+    </div>
+</form>

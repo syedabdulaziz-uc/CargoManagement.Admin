@@ -1,0 +1,48 @@
+﻿@model IEnumerable<AdminViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col-md-7">
+        <div class="row">
+            <div class="col">
+                <h2>List of Admins</h2>
+            </div>
+            <div class="col text-end">
+                <a asp-controller="Admins" asp-action="Create" class="btn btn-warning" >Create New Admin</a>
+            </div>
+        </div>
+        <div class="row">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>UserName</th>
+                    <th>Name</th>
+                    <th>email</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.UserName</td>
+                        <td>@item.Name</td>
+                        <td>@item.Email</td>
+                        <td>
+                            <a asp-controller="Admins" asp-action="Details" asp-route-id="@item.Id">Details</a>|
+                            <a asp-controller="Admins" asp-action="Edit" asp-route-id="@item.Id">Edit</a>|
+                            <a asp-controller="Admins" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+            </div>
+    </div>
+</div>
+
